@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -81,5 +82,25 @@ public class ArticleServiceTest {
         ArticleComment lastComment = article.getComments().getLast();
 
         article.removeComment(lastComment);
+    }
+
+    @DisplayName("2번 글에 댓글들을 추가한다.")
+    @Test
+    @Rollback(false)
+    void t7() {
+        Member member1 = memberService.findById(1L).get();
+        Article article2 = articleService.findById(2L).get();
+
+        article2.addComment(member1, "댓글 입니다.");
+    }
+
+    @DisplayName("1번 글의 댓글들을 수정한다.")
+    @Test
+    void t8() {
+        Article article = articleService.findById(1L).get();
+
+        article.getComments().forEach(comment -> {
+            articleService.modifyComment(comment, comment.getBody() + "!!");
+        });
     }
 }
