@@ -4,8 +4,11 @@ import com.ll.sb231127.domain.member.member.entity.Member;
 import com.ll.sb231127.global.jpa.baseEntity.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.ArrayList;
 
 import static jakarta.persistence.FetchType.LAZY;
 import static lombok.AccessLevel.PROTECTED;
@@ -22,4 +25,18 @@ public class Article extends BaseEntity {
     private Member author;
     private String title;
     private String body;
+    @OneToMany(mappedBy = "article", cascade = ALL)
+    @Builder.Default
+    private List<ArticleComment> comments = new ArrayList<>();
+
+    public void addComment(Member commentAuthor, String commentBody) {
+        ArticleComment comment = ArticleComment
+                .builder()
+                .article(this)
+                .author(commentAuthor)
+                .body(commentBody)
+                .build();
+
+        comments.add(comment);
+    }
 }
