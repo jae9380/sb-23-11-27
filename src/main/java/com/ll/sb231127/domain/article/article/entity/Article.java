@@ -7,6 +7,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
+
 import static jakarta.persistence.FetchType.LAZY;
 import static lombok.AccessLevel.PROTECTED;
 
@@ -18,6 +20,9 @@ import static lombok.AccessLevel.PROTECTED;
 @Setter
 @ToString(callSuper = true)
 public class Article extends BaseEntity {
+    private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
+
     @ManyToOne(fetch = LAZY)
     private Member author;
     private String title;
