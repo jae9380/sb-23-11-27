@@ -1,6 +1,7 @@
 package com.ll.sb231127.global.initData;
 
 import com.ll.sb231127.domain.article.article.entity.Article;
+import com.ll.sb231127.domain.article.article.repository.ArticleRepository;
 import com.ll.sb231127.domain.article.article.service.ArticleService;
 import com.ll.sb231127.domain.member.member.entity.Member;
 import com.ll.sb231127.domain.member.member.service.MemberService;
@@ -15,7 +16,8 @@ public class NotProd {
     @Bean
     public ApplicationRunner initNotProdData(
             MemberService memberService,
-            ArticleService articleService
+            ArticleService articleService,
+            ArticleRepository articleRepository
     ) {
         return args -> {
             Member member1 = memberService.join("user1", "1234").getData();
@@ -27,8 +29,10 @@ public class NotProd {
             Article article3 = articleService.write(member2.getId(), "제목3", "내용3").getData();
             Article article4 = articleService.write(member2.getId(), "제목4", "내용4").getData();
 
-            article1.addComment(member2, "댓글1");
-            article1.addComment(member2, "댓글2");
+            article1.addComment(member1, "댓글1");
+            article1.addComment(member1, "댓글1");
+
+            articleRepository.save(article1);
         };
     }
 }
