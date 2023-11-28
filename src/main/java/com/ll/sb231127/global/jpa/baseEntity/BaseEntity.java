@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
+
 import static jakarta.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
 
@@ -23,4 +25,6 @@ public class BaseEntity {
     @GeneratedValue(strategy = IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
+    private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
 }
