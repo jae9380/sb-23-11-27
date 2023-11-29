@@ -12,11 +12,11 @@ import java.util.List;
 public class ArticleTagService {
     private final ArticleTagRepository articleTagRepository;
 
-    public List<ArticleTag> findByAuthorId(long autorId) {
-        return articleTagRepository.findByArticle_authorId(autorId);
+    public List<ArticleTag> findByAuthorId(long authorId) {
+        return articleTagRepository.findByAuthorId(authorId);
     }
 
     public List<ArticleTag> findByAuthorUsername(String username) {
-        return articleTagRepository.findByArticle_author_username(username);
+        return articleTagRepository.findByAuthor_username(username);
     }
 }
