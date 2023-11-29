@@ -111,4 +111,12 @@ public class ArticleServiceTest {
 
         assertThat(tagsStr).isEqualTo("#자바 #백엔드");
     }
+
+    @DisplayName("1번 게시물 toString")
+    @Test
+    void t11(){
+        Article article1 = articleService.findById(1L).get();
+
+        System.out.println(article1);
+    }
 }
