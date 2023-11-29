@@ -46,4 +46,7 @@ public class ArticleService {
     public List<Article> findAll() {
         return articleRepository.findByOrderByIdDesc();
     }
+
+    public void addTags(String tagContent) {
+    }
 }
