@@ -1,6 +1,6 @@
-package com.ll.sb231127.domain.article.article.articleTag.repository;
+package com.ll.sb231127.domain.article.articleTag.repository;
 
-import com.ll.sb231127.domain.article.article.articleTag.entity.ArticleTag;
+import com.ll.sb231127.domain.article.articleTag.entity.ArticleTag;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

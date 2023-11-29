@@ -1,4 +1,4 @@
-package com.ll.sb231127.domain.article.article.articleComment.repository;
+package com.ll.sb231127.domain.article.articleComment.repository;
 
 import com.ll.sb231127.domain.article.articleComment.entity.ArticleComment;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -24,7 +24,6 @@ public class ArticleService {
     public RsData<Article> write(long authorId, String title, String body) {
         Article article = Article.builder()
                 .modifyDate(LocalDateTime.now())
-
                 .author(Member.builder().id(authorId).build())
                 .title(title)
                 .body(body)
@@ -49,11 +48,15 @@ public class ArticleService {
         return articleRepository.findByOrderByIdDesc();
     }
 
-    public void addTags(String tagContent) {
-    }
+    public Page<Article> search(List<String> kwTypes, String kw, Pageable pageable) {
+        if (kwTypes.contains("title") && kwTypes.contains("body")) {
+            return articleRepository.findByTitleContainingOrBodyContaining(kw, kw, pageable);
+        } else if (kwTypes.contains("title")) {
+            return articleRepository.findByTitleContaining(kw, pageable);
+        } else if (kwTypes.contains("body")) {
+            return articleRepository.findByBodyContaining(kw, pageable);
+        }
 
-    public Page<Article> search(Pageable pageable) {
         return articleRepository.findAll(pageable);
     }
-
 }

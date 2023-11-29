@@ -1,6 +1,6 @@
 package com.ll.sb231127.domain.article.article.entity;
 
-import com.ll.sb231127.domain.article.article.articleTag.entity.ArticleTag;
+import com.ll.sb231127.domain.article.articleTag.entity.ArticleTag;
 import com.ll.sb231127.domain.article.articleComment.entity.ArticleComment;
 import com.ll.sb231127.domain.member.member.entity.Member;
 import com.ll.sb231127.global.jpa.baseEntity.BaseEntity;
@@ -19,17 +19,18 @@ import static jakarta.persistence.FetchType.LAZY;
 import static lombok.AccessLevel.PROTECTED;
 
 @Entity
-@NoArgsConstructor(access = PROTECTED)
-@AllArgsConstructor(access = PROTECTED)
 @SuperBuilder
-@Getter
+@AllArgsConstructor(access = PROTECTED)
+@NoArgsConstructor(access = PROTECTED)
 @Setter
+@Getter
 @ToString(callSuper = true)
 public class Article extends BaseEntity {
     @ManyToOne(fetch = LAZY)
     private Member author;
     private String title;
     private String body;
+
     @OneToMany(mappedBy = "article", cascade = ALL, orphanRemoval = true)
     @Builder.Default
     @ToString.Exclude

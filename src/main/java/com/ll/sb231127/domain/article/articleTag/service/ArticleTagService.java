@@ -1,7 +1,7 @@
-package com.ll.sb231127.domain.article.article.articleTag.service;
+package com.ll.sb231127.domain.article.articleTag.service;
 
-import com.ll.sb231127.domain.article.article.articleTag.entity.ArticleTag;
-import com.ll.sb231127.domain.article.article.articleTag.repository.ArticleTagRepository;
+import com.ll.sb231127.domain.article.articleTag.entity.ArticleTag;
+import com.ll.sb231127.domain.article.articleTag.repository.ArticleTagRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

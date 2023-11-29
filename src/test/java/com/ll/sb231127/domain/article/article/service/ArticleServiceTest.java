@@ -1,8 +1,8 @@
 package com.ll.sb231127.domain.article.article.service;
 
-import com.ll.sb231127.domain.article.article.articleComment.service.ArticleCommentService;
-import com.ll.sb231127.domain.article.article.articleTag.entity.ArticleTag;
-import com.ll.sb231127.domain.article.article.articleTag.service.ArticleTagService;
+import com.ll.sb231127.domain.article.articleComment.service.ArticleCommentService;
+import com.ll.sb231127.domain.article.articleTag.entity.ArticleTag;
+import com.ll.sb231127.domain.article.articleTag.service.ArticleTagService;
 import com.ll.sb231127.domain.article.article.entity.Article;
 import com.ll.sb231127.domain.article.articleComment.entity.ArticleComment;
 import com.ll.sb231127.domain.member.member.entity.Member;
