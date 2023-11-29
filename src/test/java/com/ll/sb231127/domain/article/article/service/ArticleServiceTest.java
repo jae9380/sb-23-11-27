@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
@@ -63,16 +65,6 @@ public class ArticleServiceTest {
         assertThat(article_.getTitle()).isEqualTo("수정된 제목");
     }
 
-//    @DisplayName("1번 글의 댓글들을 수정한다.")
-//    @Test
-//    void t5() {
-//        Article article = articleService.findById(1L).get();
-//
-//        article.getComments().forEach(comment -> {
-//            articleService.modifyComment(comment, comment.getBody() + "!!");
-//        });
-//    }
-
     @DisplayName("1번 글의 댓글 중 마지막 것을 삭제한다.")
     @Test
     void t6() {
@@ -97,5 +89,16 @@ public class ArticleServiceTest {
         Article article1 = articleService.findById(1L).get();
 
         article1.getComments().getLast().setBody("수정된 댓글");
+    }
+
+    @DisplayName("게시물 별 댓글 수 출력")
+    @Test
+    void t9() {
+        List<Article> articles = articleService.findAll();
+
+        articles.forEach(article -> {
+            System.out.println("게시물 번호 : "+article.getId());
+            System.out.println("댓글 수 : "+article.getComments().size());
+        });
     }
 }
