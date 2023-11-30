@@ -8,11 +8,11 @@ import lombok.experimental.SuperBuilder;
 import static lombok.AccessLevel.PROTECTED;
 
 @Entity
-@NoArgsConstructor(access = PROTECTED)
-@AllArgsConstructor(access = PROTECTED)
 @SuperBuilder
-@Getter
+@AllArgsConstructor(access = PROTECTED)
+@NoArgsConstructor(access = PROTECTED)
 @Setter
+@Getter
 @ToString(callSuper = true)
 public class Member extends BaseEntity {
     private String username;

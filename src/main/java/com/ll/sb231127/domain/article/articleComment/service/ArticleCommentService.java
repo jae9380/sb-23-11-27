@@ -1,7 +1,7 @@
 package com.ll.sb231127.domain.article.articleComment.service;
 
-import com.ll.sb231127.domain.article.articleComment.repository.ArticleCommentRepository;
 import com.ll.sb231127.domain.article.articleComment.entity.ArticleComment;
+import com.ll.sb231127.domain.article.articleComment.repository.ArticleCommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
